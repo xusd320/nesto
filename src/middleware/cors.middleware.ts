@@ -1,4 +1,5 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
+import { Request, Response } from 'express';
 import * as cors from 'cors';
 
 @Injectable()
@@ -10,7 +11,7 @@ export class CorsMiddleware implements NestMiddleware {
 
     private static options: cors.CorsOptions;
 
-    public use(req: any, res: any, next: any) {
+    public use(req: Request, res: Response, next: () => void) {
         if (CorsMiddleware.options) {
             cors(CorsMiddleware.options)(req, res, next);
         } else {
