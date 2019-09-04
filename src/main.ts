@@ -10,13 +10,15 @@ async function bootstrap() {
   app.use(expressReqeustId());
   app.use(cookieParser());
 
-  const options = new DocumentBuilder()
-    .setTitle('nesto')
-    .setDescription('The nesto api description')
-    .setVersion('1.0')
-    .build();
-  const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('swagger', app, document);
+  if (process.env.NODE_ENV !== 'online') {
+    const options = new DocumentBuilder()
+      .setTitle('nesto')
+      .setDescription('The nesto api description')
+      .setVersion('1.0')
+      .build();
+    const document = SwaggerModule.createDocument(app, options);
+    SwaggerModule.setup('swagger', app, document);
+  }
 
   await app.listen(3000, '0.0.0.0');
 }
