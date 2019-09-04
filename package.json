@@ -1,0 +1,79 @@
+{
+  "name": "nesto",
+  "version": "0.0.1",
+  "description": "nesto",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.build.json",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "start": "export NODE_ENV=local && ts-node -r tsconfig-paths/register src/main.ts",
+    "start:dev": "export NODE_ENV=dev && tsc-watch -p tsconfig.build.json --onSuccess \"node dist/main.js\"",
+    "start:debug": "export DEBUG=dubbo:* && export NODE_ENV=debug && tsc-watch -p tsconfig.build.json --onSuccess \"node --inspect-brk dist/main.js\"",
+    "start:prod": "export NODE_ENV=prod && node dist/main.js",
+    "rpc": "cd ./dubbo && find ./ -name \"dubbo-*.json\" | xargs -t -I {} interpret -c {}",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@nestjs/common": "^6.0.0",
+    "@nestjs/core": "^6.0.0",
+    "@nestjs/passport": "^6.1.0",
+    "@nestjs/platform-express": "^6.0.0",
+    "@nestjs/swagger": "^3.1.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "dubbo2.js": "git+https://github.com/xusd320/dubbo2.js.git",
+    "express-request-id": "^1.4.1",
+    "interpret-util": "0.0.6",
+    "nest-dubbo": "^1.0.2",
+    "nest-winston": "^1.0.4",
+    "nestjs-config": "^1.4.3",
+    "passport": "^0.4.0",
+    "passport-cookie": "^1.0.6",
+    "reflect-metadata": "^0.1.12",
+    "rimraf": "^2.6.2",
+    "rxjs": "^6.3.3",
+    "swagger-ui-express": "^4.0.7",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^3.10.0"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "6.1.1",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.6",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "4.16.1",
+    "@types/express-request-id": "^1.4.1",
+    "@types/jest": "24.0.11",
+    "@types/node": "11.13.4",
+    "@types/supertest": "2.0.7",
+    "jest": "24.7.1",
+    "prettier": "1.17.0",
+    "supertest": "4.0.2",
+    "ts-jest": "24.0.2",
+    "ts-node": "8.1.0",
+    "tsc-watch": "2.2.1",
+    "tsconfig-paths": "3.8.0",
+    "tslint": "5.16.0",
+    "typescript": "3.4.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
