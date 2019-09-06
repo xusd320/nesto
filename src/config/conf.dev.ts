@@ -4,7 +4,7 @@ export default  {
   ...defaultConf,
   logger: {
     level: 'info',
-    file: 'nesto-%DATE%.log',
+    file: '-%DATE%.log',
     dir: '/med/log/apps/',
   },
   cors: {
