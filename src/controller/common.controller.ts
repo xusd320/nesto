@@ -3,7 +3,9 @@ import { CommonService } from '../service/common.service';
 
 @Controller('common')
 export class CommonController {
-  constructor(private readonly commonService: CommonService) {}
+  constructor(
+    private readonly commonService: CommonService,
+  ) {}
 
   @Get('uuid')
   async getUUID(): Promise<object> {
