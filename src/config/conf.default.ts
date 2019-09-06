@@ -1,5 +1,5 @@
 export default {
-  appName: 'nesto',
+  appName: 'xinche/nesto',
   logger: {
     level: 'info',
   },
