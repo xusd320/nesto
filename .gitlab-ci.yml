@@ -1,0 +1,19 @@
+stages:
+  - prepare
+  - buildCode
+
+prepare-dev:
+  stage: prepare
+  only:
+    - develop
+    - tags
+  script:
+    - med prepare -n nesto-prepare
+
+build-code:
+  stage: buildCode
+  only:
+    - develop
+    - tags
+  script:
+    - med build -n nesto-build
