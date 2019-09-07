@@ -6,7 +6,7 @@ export const apps = [
     script: './main.js',
     exec_mode: 'cluster',
     instances: 4,
-    max_memory_restart: '50M',
+    max_memory_restart: '1536M',
     error_file: '/dev/null',
     out_file: '/dev/null',
     // merge_logs: true,
