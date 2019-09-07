@@ -7,7 +7,7 @@
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
-    "start": "node dist/main.js",
+    "start": "cd ./dist && pm2-runtime pm2.config.js",
     "start:local": "export DEBUG=dubbo:* MED_ENV=dev && tsc-watch -p tsconfig.build.json --onSuccess \"node dist/main.js\"",
     "start:debug": "export DEBUG=dubbo:* MED_ENV=dev && tsc-watch -p tsconfig.build.json --onSuccess \"node --inspect-brk dist/main.js\"",
     "start:dev": "export MED_ENV=dev && node dist/main.js",
