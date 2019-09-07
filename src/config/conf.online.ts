@@ -13,7 +13,7 @@ export default  {
   dubbo: {
     options : {
       application: { name: 'nest-dubbo' },
-      register: 'g1-test-zook-v01.dns.guazi.com:2181',
+      register: 'zk01.dns.guazi.com:2181,zk02.dns.guazi.com:2181,zk03.dns.guazi.com:2181',
       zkAuthInfo: { scheme: 'digest', auth: 'xinchezk:nhLuJ0RlGUU' },
       zkRoot: 'xinche',
     },

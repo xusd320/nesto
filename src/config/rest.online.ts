@@ -1,7 +1,7 @@
 export default {
   ssoIdentity: {
     url: 'http://sso.guazi-corp.com/sso/identity',
-    appkey: 'ssotest_040f145198',
-    appSecrect: 'GcA7a2egF9',
+    appkey: 'sso_87edf52520',
+    appSecrect: 'd981GCg863',
   },
 };
