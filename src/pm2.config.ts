@@ -4,10 +4,11 @@ export const apps = [
   {
     name: appConf.appName,
     script: './main.js',
-    instances: 4,
     exec_mode: 'cluster',
-    error_file: `/med/log/apps/${appConf.appName.replace('/', '_')}-err.log`,
-    out_file: `/med/log/apps/${appConf.appName.replace('/', '_')}-out.log`,
-    merge_logs: true,
+    instances: 4,
+    max_memory_restart: '50M',
+    error_file: '/dev/null',
+    out_file: '/dev/null',
+    // merge_logs: true,
   },
 ];
