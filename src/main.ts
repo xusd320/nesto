@@ -10,7 +10,7 @@ async function bootstrap() {
   app.use(expressReqeustId());
   app.use(cookieParser());
 
-  if (process.env.MED_ENV !== 'online') {
+  if (process.env.NESTO_ENV !== 'online') {
     const options = new DocumentBuilder()
       .setTitle('nesto')
       .setDescription('The nesto api description')

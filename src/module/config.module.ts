@@ -3,8 +3,8 @@ import { ConfigModule, ConfigService } from 'nestjs-config';
 
 @Module({
   imports: [
-    ConfigModule.resolveRootPath(__dirname).load(`../config/*.${process.env.MED_ENV}.{ts,js}`, {
-      modifyConfigName: name => name.replace(`.${process.env.MED_ENV}`, ''),
+    ConfigModule.resolveRootPath(__dirname).load(`config/*.${process.env.NESTO_ENV}.{ts,js}`, {
+      modifyConfigName: name => name.replace(`.${process.env.NESTO_ENV}`, ''),
     }),
  ],
 })
