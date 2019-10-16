@@ -13,11 +13,15 @@ import * as moment from 'moment';
           winston.format.timestamp(),
           winston.format.printf(
             i =>
-              `${moment(i.timestamp).format(
-                'YYYY-MM-DDTHH:mm:ss.SSSZZ',
-              )} ${i.level.toUpperCase()} ${config.get('conf.appName')}  - - ${
-                i.message
-              }`,
+            `${
+              moment(i.timestamp).format('YYYY-MM-DDTHH:mm:ss.SSSZZ')
+            } ${
+              i.level.toUpperCase()} ${config.get('conf.appName')
+            } - ${
+              i.message.match(/^(\S+\s){2}(\S+)/)[2]
+            } ${
+              i.message
+            }`,
           ),
         ),
         transports: [
