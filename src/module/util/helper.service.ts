@@ -19,7 +19,7 @@ export class HelperService {
   }
 
   public sign(params: Param, appkey: string, appSecret: string): SignedParam {
-    const nonce = 1567522297390;
+    const nonce = Date.now();
     const expires = nonce + 30 * 60 * 1000;
     const paramsEx = { ...params, appkey, expires, nonce };
 
