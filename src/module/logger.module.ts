@@ -21,7 +21,7 @@ import * as moment from 'moment';
           ),
         ),
         transports: [
-          ...(config.has('conf.logger.file')
+          ...(config.has('conf.logger.file') && config.has('conf.logger.dir')
             ? [
                 new DailyRotateFile({
                   level: config.get('conf.logger.level'),
