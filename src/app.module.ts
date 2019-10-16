@@ -11,8 +11,6 @@ import { CorsMiddleware } from './middleware/cors.middleware';
 
 import { HelperService } from './module/util/helper.service';
 
-import { AppService } from './app.service';
-import { AppController } from './app.controller';
 import { CommonController } from './controller/common.controller';
 import { CommonService } from './service/common.service';
 
@@ -29,8 +27,8 @@ import { CommonService } from './service/common.service';
       xsrfHeaderName: null,
     }),
   ],
-  controllers: [ AppController, CommonController ],
-  providers: [ HelperService, AppService, CommonService ],
+  controllers: [  CommonController ],
+  providers: [ HelperService, CommonService ],
 })
 export class AppModule implements NestModule {
 

@@ -5,7 +5,7 @@ export default  {
   logger: {
     level: 'info',
     file: '-%DATE%.log',
-    dir: '/med/log/apps/',
+    dir: '~/med/log/apps/',
   },
   cors: {
     origin: [
