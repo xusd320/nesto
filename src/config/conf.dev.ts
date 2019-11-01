@@ -1,4 +1,5 @@
 import defaultConf from './conf.default';
+import { Zk } from 'dubbo2.js';
 
 export default  {
   ...defaultConf,
@@ -15,9 +16,11 @@ export default  {
   dubbo: {
     options : {
       application: { name: 'nest-dubbo' },
-      register: 'g1-test-zook-v01.dns.guazi.com:2181',
-      zkAuthInfo: { scheme: 'digest', auth: 'xinchezk:nhLuJ0RlGUU' },
-      zkRoot: 'xinche',
+      register: Zk({
+        url: 'g1-test-zook-v01.dns.guazi.com:2181',
+        zkAuthInfo: { scheme: 'digest', auth: 'xinchezk:nhLuJ0RlGUU' },
+        zkRoot: 'xinche',
+      }),
     },
     matches: [
       {
