@@ -1,11 +1,21 @@
-import { Inject, Controller, Get, Req, Res, HttpStatus, UseGuards } from '@nestjs/common';
+import { Inject, Controller, Get, Req, Res, HttpStatus, UseGuards, Query } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Request, Response } from 'express';
 import { Logger } from 'winston';
 import { java, Dubbo } from 'dubbo2.js';
 import dubboService from '../module/dubbo/dubbo.service';
 import { CommonService } from '../service/common.service';
+import { CatReq } from '../dto/req/testSwagger';
+import { CatRes } from '../dto/res/testSwagger';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiUseTags,
+} from '@nestjs/swagger';
 
+@ApiBearerAuth()
+@ApiUseTags('cats')
 @Controller()
 export class CommonController {
   constructor(
@@ -51,5 +61,16 @@ export class CommonController {
   async getCarCount(@Req() req: Request) {
     const result = await this.dubbo.service.DimensionInfoV2Service.count(java.Integer(2), java.String('[]'));
     return result.res;
+  }
+
+  // @UseGuards(AuthGuard('cookie'))
+  @Get('testSwagger')
+  @ApiResponse({
+    status: 200,
+    description: 'test dubbo',
+    type: CatRes,
+  })
+  async testSwagger(@Query() catReq: CatReq): Promise<CatRes> {
+    return catReq;
   }
 }

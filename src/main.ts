@@ -1,4 +1,5 @@
 import { NestFactory } from '@nestjs/core';
+import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as cookieParser from 'cookie-parser';
 import * as expressReqeustId from 'express-request-id';
@@ -19,7 +20,9 @@ async function bootstrap() {
     const document = SwaggerModule.createDocument(app, options);
     SwaggerModule.setup('swagger', app, document);
   }
-
+  app.useGlobalPipes(new ValidationPipe({
+    validationError: { target: false, value: false },
+  }));
   await app.listen(3000, '0.0.0.0');
 }
 bootstrap();

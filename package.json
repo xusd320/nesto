@@ -26,6 +26,8 @@
     "@nestjs/platform-express": "^6.0.0",
     "@nestjs/swagger": "^3.1.0",
     "@types/node": "11.13.4",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.11.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "dubbo2.js": "git+https://github.com/xusd320/dubbo2.js.git",
