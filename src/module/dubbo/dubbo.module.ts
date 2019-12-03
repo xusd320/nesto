@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { setting } from 'dubbo2.js';
 import { DubboModule } from 'nest-dubbo';
 import { ConfigService } from 'nestjs-config';
-import service from './dubbo.service';
+// import service from './dubbo.service';
 
 @Module({
   imports: [

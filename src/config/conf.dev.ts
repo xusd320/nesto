@@ -6,26 +6,26 @@ export default  {
   logger: {
     level: 'info',
     file: '-%DATE%.log',
-    dir: '/med/log/apps/',
+    dir: './log',
   },
   cors: {
     origin: [
-      'http://xinche-pms.guazi-cloud.com',
+      'http://localhost:80',
     ],
   },
   dubbo: {
     options : {
       application: { name: 'nest-dubbo' },
       register: Zk({
-        url: 'g1-test-zook-v01.dns.guazi.com:2181',
-        zkAuthInfo: { scheme: 'digest', auth: 'xinchezk:nhLuJ0RlGUU' },
-        zkRoot: 'xinche',
+        url: 'localhost:2181',
+        zkAuthInfo: { scheme: 'digest', auth: 'user:passwd' },
+        zkRoot: 'test',
       }),
     },
     matches: [
       {
         interfaces: [
-          'com.maodou.data.dimension.service.v2.DimensionInfoV2Service',
+          'com.test.dubbo.service',
         ],
         setting: {
           version: '1.0.0',

@@ -9,7 +9,7 @@ export class CookieStrategy extends PassportStrategy(Strategy) {
     private readonly authService: AuthService,
   ) {
     super({
-      cookieName: 'GUAZISSO',
+      cookieName: 'SSO',
       signed: false,
     }, async (token: string, done: (...args: any[]) => any) => {
       const result = await authService.validateToken(token);

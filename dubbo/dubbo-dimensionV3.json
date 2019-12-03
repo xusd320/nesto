@@ -1,7 +1,0 @@
-{
-    "output": "../src/dubbo",
-    "entry": "com.maodou.data.dimension.service.v3",
-    "entryJarPath": "./java/xinche-data-dimension-rpc-api-1.0.15.jar",
-    "libDirPath":   "./java/",
-    "providerSuffix": "Service"
-}
